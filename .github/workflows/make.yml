@@ -39,9 +39,24 @@ jobs:
         run: |
           wget -c https://downloads.openwrt.org/snapshots/targets/ramips/mt7621/openwrt-sdk-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64.tar.xz
 
-      - name: 正式编译
+      - name: 解压
         run: |
           tar xvf openwrt-sdk-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64.tar.xz
+
+      - name: 正式编译
+        run: |
           cd openwrt-sdk-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64.tar.xz
           git clone https://github.com/Hey-Leo/GDrcomps.git package/gdut-drcom
-          make package/gdut-drcom/compile
+          make V=s package/gdut-drcom/compile
+
+      - name: 准备
+        run: |
+          mkdir -p ./artifact/package
+          rm -rf $(find ./bin/targets/ -type d -name "packages")
+          cp -rf $(find ./bin/packages/ -type f -name "*.ipk") ./artifact/package/
+
+      - name: 上传ipk文件
+        uses: actions/upload-artifact@main
+        with:
+          name: package
+          path: ./artifact/package/
