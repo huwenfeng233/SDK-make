@@ -41,7 +41,7 @@ jobs:
 
       - name: 正式编译
         run: |
-          tar xvjf openwrt-sdk-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64.tar.xz
+          tar xvf openwrt-sdk-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64.tar.xz
           cd openwrt-sdk-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64.tar.xz
           git clone https://github.com/Hey-Leo/GDrcomps.git package/gdut-drcom
           make package/gdut-drcom/compile
