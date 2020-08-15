@@ -32,24 +32,24 @@ jobs:
 
       - name: 解压
         run: |
-          mv *.tar.xz openwrt_SDK.tar.xz
+          mv *.tar.xz OpenWrt_SDK.tar.xz
           tar xvf *.tar.xz
 
       - name: update & install feeds
         run: |
-          cd openwrt_SDK
+          cd OpenWrt_SDK
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
       - name: 正式编译
         run: |
-          cd openwrt_SDK
+          cd OpenWrt_SDK
           git clone $package_URL package/mine
           make package/mine/compile
 
       - name: 准备ipk
         run: |
-          cd openwrt_SDK
+          cd OpenWrt_SDK
           mkdir -p ./artifact/package
           rm -rf $(find ./bin/targets/ -type d -name "packages")
           cp -rf $(find ./bin/packages/ -type f -name "*.ipk") ./artifact/package/
@@ -58,4 +58,4 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: package
-          path: ./artifact/package/
+          path: ./OpenWrt_SDK/artifact/package/
