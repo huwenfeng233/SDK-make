@@ -58,15 +58,14 @@ jobs:
           cd $SDK_NAME
           make package/mine/compile
 
-      - name: 准备ipk
+      - name: 准备ipk以及相应依赖
         run: |
           cd $SDK_NAME
-          mkdir -p ./artifact/package
-          rm -rf $(find ./bin/targets/ -type d -name "packages")
-          cp -rf $(find ./bin/packages/ -type f -name "*.ipk") ./artifact/package/
+          mkdir -p ./artifact/bin
+          cp -pR ./bin/ ./artifact/bin/
 
       - name: 上传ipk
         uses: actions/upload-artifact@main
         with:
           name: package
-          path: ./$SDK_NAME/artifact/package/
+          path: ./$SDK_NAME/artifact/bin/
