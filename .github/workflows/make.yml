@@ -9,7 +9,7 @@ on:
 
 env:
   SDK_URL: https://downloads.openwrt.org/snapshots/targets/ramips/mt7621/openwrt-sdk-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64.tar.xz
-  package_URL: https://github.com/Hey-Leo/GDrcoms.git
+  package_URL: https://github.com/Hey-Leo/gdr.git
 
 jobs:
 
@@ -41,10 +41,20 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
-      - name: 正式编译
+      - name: 克隆源码
         run: |
           cd OpenWrt_SDK
           git clone $package_URL package/mine
+
+      - name: update & install feeds again
+        run: |
+          cd OpenWrt_SDK
+          ./scripts/feeds update -a
+          ./scripts/feeds install -a
+
+      - name: 开始编译
+        run: |
+          cd OpenWrt_SDK
           make package/mine/compile
 
       - name: 准备ipk
