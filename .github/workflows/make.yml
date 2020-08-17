@@ -61,11 +61,11 @@ jobs:
       - name: 准备ipk以及相应依赖
         run: |
           cd $SDK_NAME
-          mkdir -p ./artifact/bin
-          cp -pR ./bin/ ./artifact/bin/
+          mkdir -p ../artifact/bin
+          cp -pR ./bin/ ../artifact/bin/
 
       - name: 上传ipk
         uses: actions/upload-artifact@main
         with:
           name: package
-          path: ./$SDK_NAME/artifact/bin/
+          path: ./artifact/bin/
