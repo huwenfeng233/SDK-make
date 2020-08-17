@@ -9,6 +9,7 @@ on:
 
 env:
   SDK_URL: https://downloads.openwrt.org/snapshots/targets/ramips/mt7621/openwrt-sdk-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64.tar.xz
+  SDK_NAME: openwrt-sdk-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64
   package_URL: https://github.com/Hey-Leo/gdr.git
 
 jobs:
@@ -32,34 +33,33 @@ jobs:
 
       - name: 解压
         run: |
-          mv *.tar.xz OpenWrt_SDK.tar.xz
           tar xvf *.tar.xz
 
       - name: update & install feeds
         run: |
-          cd OpenWrt_SDK
+          cd $SDK_NAME
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
       - name: 克隆源码
         run: |
-          cd OpenWrt_SDK
+          cd $SDK_NAME
           git clone $package_URL package/mine
 
       - name: update & install feeds again
         run: |
-          cd OpenWrt_SDK
+          cd $SDK_NAME
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
       - name: 开始编译
         run: |
-          cd OpenWrt_SDK
+          cd $SDK_NAME
           make package/mine/compile
 
       - name: 准备ipk
         run: |
-          cd OpenWrt_SDK
+          cd $SDK_NAME
           mkdir -p ./artifact/package
           rm -rf $(find ./bin/targets/ -type d -name "packages")
           cp -rf $(find ./bin/packages/ -type f -name "*.ipk") ./artifact/package/
@@ -68,4 +68,4 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: package
-          path: ./OpenWrt_SDK/artifact/package/
+          path: ./$SDK_NAME/artifact/package/
