@@ -46,14 +46,12 @@ jobs:
           cd $SDK_NAME
           git clone $package_URL package/mine
 
-      - name: update & install feeds again & make menuconfig
+      - name: update & install feeds again & make defconfig
         run: |
           cd $SDK_NAME
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-          make menuconfig
-          ex
-          y
+          make defconfig
 
       - name: 开始编译
         run: |
