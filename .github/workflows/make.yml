@@ -11,7 +11,7 @@ on:
 env:
   SDK_URL: https://downloads.openwrt.org/snapshots/targets/ramips/mt7620/openwrt-sdk-ramips-mt7620_gcc-8.4.0_musl.Linux-x86_64.tar.xz
   SDK_NAME: openwrt-sdk-ramips-mt7620_gcc-8.4.0_musl.Linux-x86_64
-  package_URL: https://github.com/mchome/dogcom.git
+  package_URL: https://github.com/mchome/openwrt-dogcom.git
 jobs:
 
   Make:
