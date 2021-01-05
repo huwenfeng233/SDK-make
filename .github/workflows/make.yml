@@ -9,8 +9,8 @@ on:
     types: started
 
 env:
-  SDK_URL: https://downloads.openwrt.org/snapshots/targets/armvirt/32/openwrt-sdk-armvirt-32_gcc-8.4.0_musl_eabi.Linux-x86_64.tar.xz
-  SDK_NAME: openwrt-sdk-armvirt-32_gcc-8.4.0_musl_eabi.Linux-x86_64
+   SDK_URL: https://downloads.openwrt.org/snapshots/targets/x86/64/openwrt-sdk-x86-64_gcc-8.4.0_musl.Linux-x86_64.tar.xz
+  SDK_NAME: openwrt-sdk-x86-64_gcc-8.4.0_musl.Linux-x86_64
   package_URL: https://github.com/mchome/openwrt-dogcom.git
 jobs:
 
