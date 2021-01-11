@@ -9,9 +9,9 @@ on:
     types: started
 
 env:
-  SDK_URL: https://downloads.openwrt.org/snapshots/targets/ramips/mt7620/openwrt-sdk-ramips-mt7620_gcc-8.4.0_musl.Linux-x86_64.tar.xz
-  SDK_NAME: openwrt-sdk-ramips-mt7620_gcc-8.4.0_musl.Linux-x86_64.tar.xz
-  package_URL: https://github.com/mchome/luci-app-dogcom.git
+  SDK_URL: https://downloads.openwrt.org/releases/18.06.8/targets/x86/64/openwrt-sdk-18.06.8-x86-64_gcc-7.3.0_musl.Linux-x86_64.tar.xz
+  SDK_NAME: openwrt-sdk-18.06.8-x86-64_gcc-7.3.0_musl.Linux-x86_64.tar.xz
+  package_URL: https://github.com/tszh4922/luci-app-v2ray-server.git
 jobs:
 
   Make:
