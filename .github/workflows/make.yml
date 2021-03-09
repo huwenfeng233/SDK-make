@@ -11,7 +11,7 @@ on:
 env:
   SDK_URL: https://downloads.openwrt.org/releases/19.07.7/targets/ramips/mt7620/openwrt-sdk-19.07.7-ramips-mt7620_gcc-7.5.0_musl.Linux-x86_64.tar.xz
   SDK_NAME: openwrt-sdk-19.07.7-ramips-mt7620_gcc-7.5.0_musl.Linux-x86_64
-  package_URL: https://github.com/BoringCat/luci-app-mentohust.git
+  package_URL: https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git
 jobs:
 
   Make:
