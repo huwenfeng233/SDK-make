@@ -9,9 +9,9 @@ on:
     types: started
 
 env:
-  SDK_URL: https://downloads.openwrt.org/releases/19.07.7/targets/ramips/mt7620/openwrt-sdk-19.07.7-ramips-mt7620_gcc-7.5.0_musl.Linux-x86_64.tar.xz
-  SDK_NAME: openwrt-sdk-19.07.7-ramips-mt7620_gcc-7.5.0_musl.Linux-x86_64
-  package_URL: https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git
+  SDK_URL: https://downloads.openwrt.org/releases/21.02.0-rc3/targets/x86/64/openwrt-sdk-21.02.0-rc3-x86-64_gcc-8.4.0_musl.Linux-x86_64.tar.xz
+  SDK_NAME: openwrt-sdk-21.02.0-rc3-x86-64_gcc-8.4.0_musl.Linux-x86_64.tar.xz
+  package_URL: https://github.com/maxlicheng/luci-app-unblockmusic.git
 jobs:
 
   Make:
