@@ -11,7 +11,7 @@ on:
 env:
   SDK_URL: https://downloads.openwrt.org/releases/21.02.0-rc3/targets/x86/64/openwrt-sdk-21.02.0-rc3-x86-64_gcc-8.4.0_musl.Linux-x86_64.tar.xz
   SDK_NAME: openwrt-sdk-21.02.0-rc3-x86-64_gcc-8.4.0_musl.Linux-x86_64
-  package_URL: https://github.com/maxlicheng/luci-app-unblockmusic.git
+  package_URL: https://github.com/honwen/luci-app-aliddns.git
 jobs:
 
   Make:
